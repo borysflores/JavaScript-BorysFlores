@@ -1,65 +1,95 @@
 //Declaramos
-var operandoa;
+var operandoa = 0;
 var operandob;
 var operacion;
 
-function init(){
+function init() {
+    console.log('init')
     //variables
-    var display = document.getElementById("display");
+    var resultado = document.getElementById("display");
     var on = document.getElementById('on');
     var sign = document.getElementById('sign');
     var raiz = document.getElementById('raiz');
     var dividido = document.getElementById('dividido');
-    var siete = document.getElementById('7');
-    var 8 = document.getElementById('8');
-    var 9 = document.getElementById('9');
-    var por = document.getElementById('por');
-    var 4 = document.getElementById('4');
-    var 5 = document.getElementById('5');
-    var 6 = document.getElementById('6');
-    var menos = document.getElementById('menos');
-    var 1 = document.getElementById('1');
-    var 2 = document.getElementById('2');
-    var 3 = document.getElementById('3');
-    var 0 = document.getElementById('0');
-    var punto = document.getElementById('punto');
-    var igual = document.getElementById('igual');
+
+    var pantalla = 0;
     var mas = document.getElementById('mas');
 
-    //Eventos
-    0.onclick = function(e){
-        resultado.textContent = resultado.textContent + "0";
+
+
+    var a0 = document.getElementById('a0');
+    a0.onclick = function(e) {
+        resultado.textContent = parseFloat(resultado.textContent) *10 + 0;
+        console.log('funcion')
     }
-    1.onclick = function(e){
-        resultado.textContent = resultado.textContent + "1";
+
+    var a1 = document.getElementById('a1');
+    a1.onclick = function(e) {
+        resultado.textContent = parseFloat(resultado.textContent) *10 + 1;
+        console.log('funcion')
     }
-    2.onclick = function(e){
-        resultado.textContent = resultado.textContent + "2";
+
+    var a2 = document.getElementById('a2');
+    a2.onclick = function(e) {
+        resultado.textContent = parseFloat(resultado.textContent) *10 + 2;
+        console.log('funcion')
     }
-    3.onclick = function(e){
-        resultado.textContent = resultado.textContent + "3";
+
+    var a3 = document.getElementById('a3');
+    a3.onclick = function(e) {
+        resultado.textContent = parseFloat(resultado.textContent) *10 + 3;
+        console.log('funcion')
     }
-    4.onclick = function(e){
-        resultado.textContent = resultado.textContent + "4";
+
+    var a4 = document.getElementById('a4');
+    a4.onclick = function(e) {
+        resultado.textContent = parseFloat(resultado.textContent) *10 + 4;
+        console.log('funcion')
     }
-    5.onclick = function(e){
-        resultado.textContent = resultado.textContent + "5";
+
+    var a5 = document.getElementById('a5');
+    a5.onclick = function(e) {
+        resultado.textContent = parseFloat(resultado.textContent) *10 + 5;
+        console.log('funcion')
     }
-    6.onclick = function(e){
-        resultado.textContent = resultado.textContent + "6";
+
+    var a6 = document.getElementById('a6');
+    a6.onclick = function(e) {
+        resultado.textContent = parseFloat(resultado.textContent) *10 + 6;
+        console.log('funcion')
     }
-    7.onclick = function(e){
-        resultado.textContent = resultado.textContent + "7";
+
+    var a7 = document.getElementById('a7');
+    a7.onclick = function(e) {
+        resultado.textContent = parseFloat(resultado.textContent) *10 + 7;
+        operandob = parseFloat(resultado.textContent)
+        console.log('funcion')
     }
-    8.onclick = function(e){
-        resultado.textContent = resultado.textContent + "8";
+
+    var a8 = document.getElementById('a8');
+    a8.onclick = function(e) {
+        resultado.textContent = parseFloat(resultado.textContent) *10 + 8;
+        console.log('funcion')
     }
-    9.onclick = function(e){
-        resultado.textContent = resultado.textContent + "9";
+
+    var a9 = document.getElementById('a9');
+    a9.onclick = function(e) {
+        resultado.textContent = parseFloat(resultado.textContent) *10 + 9;
+        console.log('funcion')
     }
-    punto.onclick = function(e){
-        resultado.textContent = resultado.textContent + ".";
+
+    var punto = document.getElementById('punto');
+    punto.onclick = function(e) {
+        resultado.textContent = parseFloat(resultado.textContent) + '.';
+        console.log('funcion')
     }
+
+    mas.onclick = function(e) {
+        operandoa = resultado.textContent;
+        operacion = "+";
+        limpiar();
+    }
+
     on.onclick = function(e){
         resetear();
     }
@@ -88,31 +118,30 @@ function init(){
         resolver();
     }
     sign.onclick = function(e){
-        operandoa = resultado.textContent;
-        operacion = "+";
-        limpiar();
+        operandoa = parseFloat(resultado.textContent) *(-1);
+        resultado.textContent = operandoa;
     }
     raiz.onclick = function(e){
-        operandoa = resultado.textContent;
-        operacion = "+";
-        limpiar();
+        operandoa = Math.sqrt(parseFloat(resultado.textContent));
+        resultado.textContent = operandoa;
     }
 
 
-    function limpiar(){
-        resultado.textContent = "";
+    function limpiar() {
+        resultado.textContent = '0';
     }
-    function resetear(){
-        resultado.textContent = "";
+
+    function resetear() {
+        resultado.textContent = '0';
         operandoa = 0;
         operandob = 0;
         operacion = "";
     }
 
 
-    function resolver(){
+    function resolver() {
         var res = 0;
-        switch(operacion){
+        switch (operacion) {
             case "+":
                 res = parseFloat(operandoa) + parseFloat(operandob);
                 break;
@@ -128,4 +157,9 @@ function init(){
         }
         resetear();
         resultado.textContent = res;
+        operandoa = res;
     }
+
+}
+
+init();
